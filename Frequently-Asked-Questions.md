@@ -28,9 +28,9 @@ Most reports of things like this are unfortunately traceable to camera driver pr
 * Camera driver does not support it correctly, and fails to initialize
 * *All* initialization including light, focus and other settings fail, making scanning hard or impossible
 
-Only report an issue like this on the mailing list if you can also supply log output from the app using `adb logcat` or the `aLogcat` app. Find log messages from the time the app first opens, especially including any apparent exceptions or error messages. This is useful information even if it does not lead to a workaround.
+**First**, try disabling camera features in Settings. Look for "Device Bug Workarounds". Usually, disabling one or more of these will work around the issue.
 
-Only open a bug report issue if you have specific code changes suggestions.
+If not, only report an issue like this on the mailing list if you can also supply log output from the app using `adb logcat` or the [aLogcat app](https://play.google.com/store/apps/details?id=org.jtb.alogcat). Find log messages from the time the app first opens, especially including any apparent exceptions or error messages. This is useful information even if it does not lead to a workaround. Ideally, provide a proposed code change.
 
 ### Barcode Scanner sets off a virus warning
 
@@ -46,7 +46,7 @@ Worse still, because this is an open source project, it's easy for a malicious p
 
 Yes. The application is distributed under the terms of the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Distributing the .apk files released by this project complies with the terms of the license, with no further action required. There is no fee. These are the only available license terms.
 
-We *strongly* recommend distributing the project's release, rather than building from source, for best user experience. It is signed with the project's keys and so is the only copy that will be upgradeable to future releases via Android.
+We *strongly* recommend distributing the project's release, rather than building from source, for best user experience. It is signed with the project's keys and so is the only copy that will be upgradeable to future releases via Google Play.
 
 The project only maintains a release of Barcode Scanner on [Google Play](https://play.google.com/store/apps/details?id=com.google.zxing.client.android) and does not maintain releases elsewhere. Other app stores are however welcome to maintain releases on their own.
 
