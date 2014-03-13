@@ -43,7 +43,9 @@ export ANDROID_HOME=/change/this/path/to/android-sdk
 
 #### Release 3.1.0 and later
 
-From `android/`, run `mvn package` to produce a compile `.apk` file in `target`.
+From `android/`, run `mvn package android:apk` to produce a compile `.apk` file in `target`. Use `android-x.y.z-aligned.apk`.
+
+Other users will not be able to build the signed release version, but the command is: `mvn -Pandroid-release -Djarsigner.storepass=... -Djarsigner.keypass=... clean package android:apk`.
 
 ### android-integration/
 
