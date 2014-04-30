@@ -26,7 +26,7 @@ or
 echo "sdk.dir=/change/this/path/to/android-sdk" > android/local.properties
 ```
 
-#### Release 3.1.0 and later
+#### Release 3.0.1 and later
 
 ```
 export ANDROID_HOME=/change/this/path/to/android-sdk
