@@ -41,7 +41,7 @@ export ANDROID_HOME=/change/this/path/to/android-sdk
 1. Build `core/` below, first
 1. Run `ant debug` from `android/` to build the Barcode Scanner application as `bin/Barcode Scanner-debug.apk`.
 
-#### Release 3.1.0 and later
+#### Release 3.0.1 and later
 
 From `android/`, run `mvn package android:apk` to produce a compile `.apk` file in `target`. Use `android-x.y.z-aligned.apk`.
 
@@ -73,7 +73,7 @@ _Most components are libraries and are not run directly._
 1. Connect your device via USB
 1. If you already have the standard version of Barcode Scanner installed, uninstall it
 1. Make sure your device is set to allow apps from untrusted sources
-1. In release 3.0.0 and earlier, run `ant installd` to install the debug build. In release 3.1.0 and later, run `mvn android:deploy`.
+1. In release 3.0.0 and earlier, run `ant installd` to install the debug build. In release 3.0.1 and later, run `mvn android:deploy`.
 
 ### javase/
 
@@ -95,7 +95,7 @@ _Path syntax is different on Windows. Here and elsewhere you will need to use ';
   <dependency>
     <groupId>com.google.zxing</groupId>
     <artifactId>core</artifactId>
-    <version>3.0.0</version>
+    <version>(the current version)</version>
   </dependency>
 </dependencies>
 ```
