@@ -99,3 +99,22 @@ _Path syntax is different on Windows. Here and elsewhere you will need to use ';
   </dependency>
 </dependencies>
 ```
+
+## Project Developers Only: Release Process
+
+1. `mvn -s private-settings.xml -pl '!android,!androidtest,!glass' clean release:clean release:prepare`
+   The `-pl` arg prevents building of Android apps, which are not released via Maven, without you having to unset `ANDROID_HOME`.
+1. Specify current and next version of all modules, which may not be the version Maven infers.
+1. If all is well, `mvn -s private-settings.xml -pl '!android,!androidtest,!glass' release:perform`
+1. `git pull` to sync with Maven's release changes
+1. To immediately publish a next snapshot, `mvn -s private-settings.xml -pl '!android,!androidtest,!glass' clean deploy`
+1. To get the site ready, first go back to the tag, `git checkout -f tags/zxing-x.y.z`
+1. `mvn clean site:site site:stage`
+1. In a temp directory somewhere, `git clone -b gh-pages https://github.com/zxing/zxing.git`
+1. `rm -r [temp]/*`
+1. `cp -r [zxing dir]/target/staging/* [temp]/`
+1. In that temp dir, `git add -A .`
+1. `git commit -m 'Update site for x.y.z'`
+1. `git push origin gh-pages`
+1. Delete the temp dir
+1. Sync with `git checkout -f master` and `git pull`
