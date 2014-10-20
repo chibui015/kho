@@ -16,18 +16,6 @@ A few configuration steps are needed, depending on which modules you want to bui
 
 The Android SDK must be installed of course. Run the tool called `android` and ensure that platform support for the latest Android release is installed. At the time of this writing, that's platform level 19 / Android 4.4.
 
-#### Release 3.0.0 and earlier
-
-```
-android update project --path android
-```
-or
-```
-echo "sdk.dir=/change/this/path/to/android-sdk" > android/local.properties
-```
-
-#### Release 3.0.1 and later
-
 ```
 export ANDROID_HOME=/change/this/path/to/android-sdk
 ```
@@ -35,13 +23,6 @@ export ANDROID_HOME=/change/this/path/to/android-sdk
 ## Build
 
 ### android/
-
-#### Release 3.0.0 and earlier
-
-1. Build `core/` below, first
-1. Run `ant debug` from `android/` to build the Barcode Scanner application as `bin/Barcode Scanner-debug.apk`.
-
-#### Release 3.0.1 and later
 
 From `android/`, run `mvn package android:apk` to produce a compile `.apk` file in `target`. Use `android-x.y.z-aligned.apk`.
 
