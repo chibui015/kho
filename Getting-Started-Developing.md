@@ -14,7 +14,7 @@ A few configuration steps are needed, depending on which modules you want to bui
 
 ### android/
 
-The Android SDK must be installed of course. Run the tool called `android` and ensure that platform support for the latest Android release is installed. At the time of this writing, that's platform level 19 / Android 4.4.
+The Android SDK must be installed of course. Run the tool called `android` and ensure that platform support for the latest Android release is installed. At the time of this writing, that's platform level 21 / Android 5.0.1.
 
 ```
 export ANDROID_HOME=/change/this/path/to/android-sdk
@@ -22,27 +22,23 @@ export ANDROID_HOME=/change/this/path/to/android-sdk
 
 ## Build
 
+From the root of the project, run `mvn package` to compile, test and assemble all modules. Add `-DskipTests` to skip unit tests. Note that Android-related modules and apps will not be built unless `ANDROID_HOME` is set.
+
+Compiled `.jar` files are found in submodules after this. For example, the compiled `core/` code is available at `core/target/core-x.y.z.jar`.
+
 ### android/
 
-From `android/`, run `mvn package android:apk` to produce a compile `.apk` file in `target`. Use `android-x.y.z-aligned.apk`.
+To build the Barcode Scanner Android app, a few slightly different steps are needed. From `android/`, run `mvn package android:apk` to produce a compile `.apk` file in `target`. Use `android-x.y.z-aligned.apk`.
 
 Other users will not be able to build the signed release version, but the command is: `mvn -Pandroid-release -Djarsigner.storepass=... -Djarsigner.keypass=... clean package android:apk`.
 
-### android-integration/
+### androidtest/ glass/
 
-From `android-integration/`, run `mvn package` to produce compiled libraries like `android-integration-x.y.z.jar` in the `target/` directory.
-
-### core/
-
-From `core/`, run `mvn -DskipTests package` to product compiled libraries like `core-x.y.z.jar` in the `target/` directory.
-
-### javase/
-
-From `javase/`, run `mvn package` to product compiled libraries like `javase-x.y.z.jar` in the `target/` directory.
+Being Android apps as well, the ZXing Test and Barcode Scanner for Google Glass application APKs are built similarly to `android/`.
 
 ### zxingorg/
 
-From `zxingorg/`, run `mvn package` to produce a `.war` in the `target/` directory.
+Note that the deployable `.war` file will be produced in the `target/` directory.
 
 ## Run
 
