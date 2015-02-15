@@ -83,7 +83,7 @@ _Path syntax is different on Windows. Here and elsewhere you will need to use ';
 1. `unset ANDROID_HOME` so as to not release Android apps
 1. `mvn -s private-settings.xml clean release:clean release:prepare` and optionally add `-DreleaseVersion=x.y.z -DdevelopmentVersion=a.b.c-SNAPSHOT` if the answer is not the one Maven guesses and you want to avoid repeating the answer
 1. If all is well, `mvn -Darguments="-Dgpg.passphrase=..." -s private-settings.xml release:perform`
-1. Log in to `oss.sonatype.org` and finish the release (see https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide).
+1. Log in to `oss.sonatype.org` and finish the release (http://central.sonatype.org/pages/ossrh-guide.html).
 1. Update the release on Github
 1. Announce the release on the mailing list
 1. To immediately publish a next snapshot, `mvn -s private-settings.xml clean deploy`
