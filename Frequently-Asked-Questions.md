@@ -4,11 +4,11 @@
 
 #### ... my contacts?
 
-QR Codes and Data Matrix codes can encode contact information. Upon scanning such a code, you will be prompted to add the contact information to your contacts list. In addition, Barcode Scanner can encode a contact as a QR Code and present it on-screen, so that a friend can point their phone at your screen to transfer that contact. This is why the app requests permission to write and read contacts. They are not used in any other way.
+QR Codes and Data Matrix codes can encode [contact information](http://zxing.appspot.com/generator). Upon scanning such a code, you will be prompted to add the contact information to your contacts list. In addition, Barcode Scanner can encode a contact as a QR Code and present it on-screen, so that a friend can point their phone at your screen to transfer that contact. This is why the app requests permission to write and read contacts. They are not used in any other way.
 
 #### ... my browser history and bookmarks?
 
-Just like contacts, you can share a bookmark with a friend by encoding the URL as a QR Code. It is then shown on screen for him or her to scan with their phone. That's the only thing we use them for.
+Just like contacts, you can share a bookmark with a friend by [encoding the URL](http://zxing.appspot.com/generator) as a QR Code. It is then shown on screen for him or her to scan with their phone. That's the only thing we use them for.
 
 #### ... my SD card?
 
@@ -16,7 +16,7 @@ You can use Barcode Scanner to email a generated QR code or your scan history. T
 
 #### ... my wi-fi settings?
 
-QR codes can encode the user name, password, etc. for a wi-fi network so that you don't have to type them into your phone. To do this, the application needs to be able to change wi-fi settings.
+QR codes can [encode the user name, password, etc. for a wi-fi network](http://zxing.appspot.com/generator) so that you don't have to type them into your phone. To do this, the application needs to be able to change wi-fi settings.
 
 ### It doesn't focus or scan on my phone
 
