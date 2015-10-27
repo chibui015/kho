@@ -14,7 +14,7 @@ A few configuration steps are needed, depending on which modules you want to bui
 
 ### android/
 
-The Android SDK must be installed of course. Run the tool called `android` and ensure that platform support for the latest Android release is installed. At the time of this writing, that's platform level 21 / Android 5.0.1.
+The Android SDK must be installed of course. Run the tool called `android` and ensure that platform support for the latest Android release is installed. At the time of this writing, that's platform level 22 / Android 5.1.
 
 ```
 export ANDROID_HOME=/change/this/path/to/android-sdk
