@@ -54,6 +54,16 @@ _Most components are libraries and are not run directly._
 
 ### javase/
 
+#### Version 3.2.2+
+
+After building, in the `javase/` directory, execute `mvn -DskipTests package assembly:single` to create a single JAR file containing all classes needed to run client command line apps, as `target/javase-x.y.z-jar-with-dependencies.jar`. Run `CommandLineRunner` with simply:
+
+```
+java -jar target/javase-x.y.z-jar-with-dependencies.jar [URL | FILE]
+```
+
+#### Earlier versions
+
 After building, simply run this class with `java` from the top-level directory:
 
 ```
