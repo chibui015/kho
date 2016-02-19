@@ -22,7 +22,7 @@ export ANDROID_HOME=/change/this/path/to/android-sdk
 
 ## Build
 
-From the root of the project, run `mvn package` to compile, test and assemble all modules. Add `-DskipTests` to skip unit tests. Note that Android-related modules and apps will not be built unless `ANDROID_HOME` is set.
+From the root of the project, run `mvn install` to compile, test and assemble all modules. Add `-DskipTests` to skip unit tests. Note that Android-related modules and apps will not be built unless `ANDROID_HOME` is set.
 
 Compiled `.jar` files are found in submodules after this. For example, the compiled `core/` code is available at `core/target/core-x.y.z.jar`.
 
