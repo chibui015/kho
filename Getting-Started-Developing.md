@@ -26,15 +26,11 @@ From the root of the project, run `mvn install` to compile, test and assemble al
 
 Compiled `.jar` files are found in submodules after this. For example, the compiled `core/` code is available at `core/target/core-x.y.z.jar`.
 
-### android/
+### android/ androidtest/ glass/
 
-To build the Barcode Scanner Android app, a few slightly different steps are needed. From `android/`, run `mvn package android:apk` to produce a compile `.apk` file in `target`. Use `android-x.y.z-aligned.apk`.
+To build the Barcode Scanner Android app, a few slightly different steps are needed. From `android/` (or, `androidtest/`, `glass/`), run `mvn package android:apk` to produce a compile `.apk` file in `target`. Use `android-x.y.z-aligned.apk`.
 
 Other users will not be able to build the signed release version, but the command is: `mvn -Pandroid-release -Djarsigner.storepass=... -Djarsigner.keypass=... clean package android:apk`.
-
-### androidtest/ glass/
-
-Being Android apps as well, the ZXing Test and Barcode Scanner for Google Glass application APKs are built similarly to `android/`.
 
 ### zxingorg/
 
@@ -44,9 +40,9 @@ Note that the deployable `.war` file will be produced in the `target/` directory
 
 _Most components are libraries and are not run directly._
 
-### android/
+### android/ androidtest/ glass/
 
-1. Build `android/`
+1. Build `android/` (or, `androidtest/`, `glass/`)
 1. Connect your device via USB
 1. If you already have the standard version of Barcode Scanner installed, uninstall it
 1. Make sure your device is set to allow apps from untrusted sources
