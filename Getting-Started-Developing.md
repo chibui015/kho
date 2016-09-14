@@ -1,20 +1,20 @@
 ## Just Need a JAR?
 
-If you just need a *pre-built JAR file*, you can always find compiled resources from the [Maven release repository](http://repo1.maven.org/maven2/com/google/zxing/), including [recent snapshot/nightly builds](https://oss.sonatype.org/content/repositories/snapshots/com/google/zxing/).
+If you just need a *pre-built JAR file*, you can always find compiled resources from the [Maven release repository](https://repo1.maven.org/maven2/com/google/zxing/), including [recent snapshot/nightly builds](https://oss.sonatype.org/content/repositories/snapshots/com/google/zxing/).
 
 ## Download
 
-Download the [latest release](https://github.com/zxing/zxing/releases), version 3.0.0 or later. Or, retrieve the latest source code from [Github](https://github.com/zxing/zxing).
+Download the [latest release](https://github.com/zxing/zxing/releases), or, retrieve the latest source code from [Github](https://github.com/zxing/zxing).
 
-The code is organized into several subdirectories, corresponding to modules, like `core/` and `javase/`. Within each Java-based module, there is a `pom.xml` file for use with [Apache Maven](http://maven.apache.org/). 
+The code is organized into several subdirectories, corresponding to modules, like `core/` and `javase/`. Within each Java-based module, there is a `pom.xml` file for use with [Apache Maven](https://maven.apache.org/). 
 
 ## Configure
 
 A few configuration steps are needed, depending on which modules you want to build. From the directory where you unpacked or checked out the source code:
 
-### android/
+### android/ androidtest/ glass/
 
-The Android SDK must be installed of course. Run the tool called `android` and ensure that platform support for the latest Android release is installed. At the time of this writing, that's platform level 22 / Android 5.1.
+The Android SDK must be installed of course. Run the tool called `android` and ensure that platform support for the Android releases targeted by the Andrdoid app(s) you're interested in are installed. At the time of this writing, for the Barcode Scanner app in `android/`, that's platform level 22 / Android 5.1.
 
 ```
 export ANDROID_HOME=/change/this/path/to/android-sdk
@@ -50,24 +50,14 @@ _Most components are libraries and are not run directly._
 1. Connect your device via USB
 1. If you already have the standard version of Barcode Scanner installed, uninstall it
 1. Make sure your device is set to allow apps from untrusted sources
-1. In release 3.0.0 and earlier, run `ant installd` to install the debug build. In release 3.0.1 and later, run `mvn android:deploy`.
+1. Run `mvn android:deploy`.
 
 ### javase/
-
-#### Version 3.2.2+
 
 After building, in the `javase/` directory, execute `mvn -DskipTests package assembly:single` to create a single JAR file containing all classes needed to run client command line apps, as `target/javase-x.y.z-jar-with-dependencies.jar`. Run `CommandLineRunner` with simply:
 
 ```
 java -jar target/javase-x.y.z-jar-with-dependencies.jar [URL | FILE]
-```
-
-#### Earlier versions
-
-After building, simply run this class with `java` from the top-level directory:
-
-```
-java -cp javase/target/javase-x.y.z.jar:core/target/core-x.y.z.jar com.google.zxing.client.j2se.CommandLineRunner [URL | FILE]
 ```
 
 _Path syntax is different on Windows. Here and elsewhere you will need to use ';' rather than ':' to separate classpath elements, and likely need to use the '\' path separator._
