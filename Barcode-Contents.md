@@ -18,7 +18,7 @@ URLs prefixed with `URLTO:` have been observed "in the wild" (e.g. `URLTO:google
 
 It's interesting to note that, actually, QR Codes can encode data more efficiently in some cases if only uppercase letters are used. That's because it has a special encoding mode for text consistent of only (uppercase) letters, numbers, and common symbols. It may be advantageous to encode a URL like `HTTP://MYSITE.COM/FOO...` rather than `http://mysite.com/foo...` for this reason. However, this depends upon the web server responding to requests correctly when the URI is uppercased. It's not necessarily true that URIs and paths are treated as case-insensitive by a web server, since URIs are technically case sensitive. Don't try this unless you test it to know it works.
 
-Note that NTT DoCoMo uses a [MEBKM bookmark format](http://www.nttdocomo.co.jp/english/service/imode/make/content/barcode/function/application/bookmark/index.html) to express not only a URL but title. This could be treated like a URL, or, prompt the user to add a browser bookmark.
+Note that NTT DoCoMo uses a [MEBKM bookmark format](https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/bookmark/) to express not only a URL but title. This could be treated like a URL, or, prompt the user to add a browser bookmark.
 
 ## E-mail address
 
@@ -26,7 +26,7 @@ To encode an e-mail address like `sean@example.com`, one could simply encode `se
 
 Readers should open a blank e-mail message to the given address.
 
-Note that NTT DoCoMo has standardized a more expressive [MATMSG format](http://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/mail/) for encoding an e-mail address, subject, and message.
+Note that NTT DoCoMo has standardized a more expressive [MATMSG format](https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/mail/) for encoding an e-mail address, subject, and message.
 
 ## Telephone numbers
 
@@ -37,9 +37,9 @@ Readers should invoke the device's dialer, if applicable, and pre-fill it with t
 
 ## Contact information
 
-We have, for example, the [vCard](http://en.wikipedia.org/wiki/VCard) format for encoding contact information as text. This format proves a bit verbose for use in 2D barcodes, whose information capacity is limited. It is not clear whether vCard is or should be used to encode contact information.
+We have, for example, the [vCard](https://en.wikipedia.org/wiki/VCard) format for encoding contact information as text. This format proves a bit verbose for use in 2D barcodes, whose information capacity is limited. It is not clear whether vCard is or should be used to encode contact information.
 
-NTT DoCoMo has popularized a compact [MECARD format](http://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/addressbook/index.html) for encoding contact information. For example, to encode the name Sean Owen, address "76 9th Avenue, 4th Floor, New York, NY 10011", phone number "212 555 1212", e-mail `srowen@example.com`, one would encode this in a barcode:
+NTT DoCoMo has popularized a compact [MECARD format](https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/addressbook/) for encoding contact information. For example, to encode the name Sean Owen, address "76 9th Avenue, 4th Floor, New York, NY 10011", phone number "212 555 1212", e-mail `srowen@example.com`, one would encode this in a barcode:
 
 ```
 MECARD:N:Owen,Sean;ADR:76 9th Avenue, 4th Floor, New York, NY 10011;TEL:12125551212;EMAIL:srowen@example.com;;
@@ -63,12 +63,12 @@ BIZCARD:N:Sean;X:Owen;T:Software Engineer;C:Google;A:76 9th Avenue, New York, NY
 
 ### vCard
 
-[vCard](http://en.wikipedia.org/wiki/VCard) format has been used as well to encode contact information, though it is more verbose.
+[vCard](https://en.wikipedia.org/wiki/VCard) format has been used as well to encode contact information, though it is more verbose.
 
 
 ## SMS
 
-Much like an e-mail address, one can encode an SMS shortcode or number by creating an sms URI. For example to create a link to the number 12345 one would encode `sms:12345`. See this [draft of the SMS URI specification](http://www.ietf.org/internet-drafts/draft-wilde-sms-uri-14.txt) for details.
+Much like an e-mail address, one can encode an SMS shortcode or number by creating an sms URI. For example to create a link to the number 12345 one would encode `sms:12345`. See [RFC 5724](https://www.ietf.org/rfc/rfc5724.txt) for details.
 
 Likewise `SMSTO:` URLs have been observed in the wild, though I am still looking for an official specification for it. Follow this with the number to SMS.
 
@@ -121,7 +121,7 @@ This should trigger YouTube player: `youtube://[video ID]`
 
 ### iCal
 
-Though not observed in any QR Code or reader so far, it is conceivable that [iCal](http://en.wikipedia.org/wiki/ICalendar) format could be used to encode calendar events. Readers could add events to the user's calendar in response.
+Though not observed in any QR Code or reader so far, it is conceivable that [iCal](https://en.wikipedia.org/wiki/ICalendar) format could be used to encode calendar events. Readers could add events to the user's calendar in response.
 
 We tentatively suggest using an abbreviated form that omits the VCALENDAR element:
 
