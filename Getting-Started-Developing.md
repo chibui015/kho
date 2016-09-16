@@ -84,12 +84,13 @@ _Path syntax is different on Windows. Here and elsewhere you will need to use ';
 1. Log in to `oss.sonatype.org` and finish the release (http://central.sonatype.org/pages/releasing-the-deployment.html).
 1. Update the release on Github
 1. Announce the release on the mailing list
+1. For the three apps (`android`, `androidtest`, `glass`), update their `parent` version to be the new snapshot release and commit
 1. To immediately publish a next snapshot, `mvn -s private-settings.xml clean deploy`
 1. To get the site ready, first go back to the tag, `git checkout -f tags/zxing-x.y.z`
 1. `mvn clean site`
 1. `mvn site:stage site:deploy -pl .`
 1. `git add docs`
 1. You may wish to `git status` to ensure that all the changes are in `docs/` and that they make sense
+1. `git checkout master`
 1. `git commit -m 'Update site for x.y.z'`
 1. `git push origin master`
-1. Sync with `git checkout -f master` and `git pull`
