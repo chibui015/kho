@@ -1,5 +1,7 @@
 The web application provided by this project at http://zxing.org (and in the source code under `zxingorg/`) provides a re-implementation of the now-deprecated [Google Chart Server API](https://google-developers.appspot.com/chart/infographics/docs/qr_codes) for QR code encoding. The documentation for this API is reproduced here.
 
+The endpoint is at `/w/chart`. It responds to `GET`, but also `POST` requests to specify the encoded data (see `chl` below). The response is, by default, a PNG image. `/w/chart.png` also works and returns PNG. `/w/chart.gif` returns a GIF image, and `/w/chart.jpeg` or `/w/chart.jpg` returns a JPEG.
+
 | Parameter | Required? | Description |
 | --------- | --------- | ----------- |
 | `cht=qr` | Required | Specifies a QR code. |
