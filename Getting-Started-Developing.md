@@ -94,3 +94,11 @@ _Path syntax is different on Windows. Here and elsewhere you will need to use ';
 1. `git checkout master`
 1. `git commit -m 'Update site for x.y.z'`
 1. `git push origin master`
+
+### Deploying zxing.appspot.com App Engine app
+
+After building with `mvn package`, deploy from `target/zxing.appspot.com-x.y.z` with:
+
+```
+gcloud app deploy --project [PROJECT] --no-promote --version [VERSION] 
+```
