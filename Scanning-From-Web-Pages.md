@@ -14,19 +14,9 @@ Additional placeholders are available in the URL pattern:
   * `{TYPE}`: the name of the type of parsed content, like `PRODUCT`
   * `{META}`: a string representation of the scan metadata, like `{POSSIBLE_COUNTRY=US/CA}`
 
-_These are not available in other platform implementations, like the iOS app._
-
 The following URL also works, and some have found it works where the HTTP URL above doesn't. This also shows usage of `SCAN_FORMATS`:
 
 `zxing://scan/?ret=http%3A%2F%2Ffoo.com%2Fproducts%2F%7BCODE%7D%2Fdescription&SCAN_FORMATS=UPC_A,EAN_13`
-
-## iPhone
-
-Note that this functionality will be available on the iPhone app `Barcodes`. iOS works differently, and so the URL pattern must instead use the `zxing://scan/` URL:
-
-`zxing://scan/?ret=http%3A%2F%2Ffoo.com%2Fproducts%2F%7BCODE%7D%2Fdescription&SCAN_FORMATS=UPC_A,EAN_13`
-
-Only the `{CODE}` placeholder is available at the moment.
 
 ## Custom search URL
 
