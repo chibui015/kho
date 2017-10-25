@@ -12,9 +12,9 @@ The code is organized into several subdirectories, corresponding to modules, lik
 
 A few configuration steps are needed, depending on which modules you want to build. From the directory where you unpacked or checked out the source code:
 
-### android/ androidtest/ glass/
+### android/
 
-The Android SDK must be installed of course. Run the tool called `android` and ensure that platform support for the Android releases targeted by the Andrdoid app(s) you're interested in are installed. At the time of this writing, for the Barcode Scanner app in `android/`, that's platform level 22 / Android 5.1.
+The Android SDK must be installed of course. Run the tool called `sdkmanager` and ensure that platform support for the Android release targeted by the app is installed. At the time of this writing, that's platform level 22 / Android 5.1.
 
 ```
 export ANDROID_HOME=/change/this/path/to/android-sdk
@@ -26,9 +26,9 @@ From the root of the project, run `mvn install` to compile, test and assemble al
 
 Compiled `.jar` files are found in submodules after this. For example, the compiled `core/` code is available at `core/target/core-x.y.z.jar`.
 
-### android/ androidtest/ glass/
+### android/
 
-To build the Barcode Scanner Android app, a few slightly different steps are needed. From `android/` (or, `androidtest/`, `glass/`), run `mvn package android:apk` to produce a compile `.apk` file in `target`. Use `android-x.y.z-aligned.apk`.
+To build the Barcode Scanner Android app, a few slightly different steps are needed. From `android/`, run `mvn package android:apk` to produce a compile `.apk` file in `target`. Use `android-x.y.z-aligned.apk`.
 
 Other users will not be able to build the signed release version, but the command is: `mvn -Pandroid-release -Djarsigner.storepass=... -Djarsigner.keypass=... clean package android:apk`.
 
@@ -40,9 +40,9 @@ Note that the deployable `.war` file will be produced in the `target/` directory
 
 _Most components are libraries and are not run directly._
 
-### android/ androidtest/ glass/
+### android/
 
-1. Build `android/` (or, `androidtest/`, `glass/`)
+1. Build `android/`
 1. Connect your device via USB
 1. If you already have the standard version of Barcode Scanner installed, uninstall it
 1. Make sure your device is set to allow apps from untrusted sources
