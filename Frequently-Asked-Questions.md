@@ -18,6 +18,10 @@ You can use Barcode Scanner to email a generated QR code or your scan history. T
 
 QR codes can [encode the user name, password, etc. for a wi-fi network](http://zxing.appspot.com/generator) so that you don't have to type them into your phone. To do this, the application needs to be able to change wi-fi settings.
 
+#### ... the Internet?
+
+A few types of scan results will trigger an action to retrieve more information about the result. For example, URL redirectors will be resolved, and web pages will be retrieved up to the title, to give some clue about the destination of the encoded URL before accessing. This needs internet access. Likewise, product and book barcodes will cause a lookup of additional detail about the product or book from internet resources. These can be disabled in settings.
+
 ### It doesn't focus or scan on my phone
 
 Most reports of things like this are unfortunately traceable to camera driver problems. This can be true even if other apps like the camera work. The problem is of the form:
