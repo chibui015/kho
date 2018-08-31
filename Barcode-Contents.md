@@ -34,6 +34,11 @@ A `tel` URI should be used to encode a telephone number, to ensure that the digi
 
 Readers should invoke the device's dialer, if applicable, and pre-fill it with the given number, but not automatically initiate a call.
 
+```plain
+# NYC Directory assistance
+tel:+12125551212
+```
+
 See Also…
 
 * [CSS-Tricks: The Current State of Telephone Links](https://css-tricks.com/the-current-state-of-telephone-links/)
