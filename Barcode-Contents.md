@@ -109,12 +109,16 @@ See Also…
 * [Apple URL Scheme Reference: FaceTime Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/FacetimeLinks/FacetimeLinks.html#//apple_ref/doc/uid/TP40007899-CH2-SW1)
 * [Android: Common Intents](https://developer.android.com/guide/components/intents-common#Messaging)
 
-## Geographic information
+## Maps, Geographic information
 
-A geo URI may be used to encode a point on the earth, including altitude. For example, to encode the Google's New York office, which is at 40.71872 deg N latitude, 73.98905 deg W longitude, at a point 100 meters above the office, one would encode "geo:40.71872,-73.98905,100".
+A `geo` URI may be used to encode a point on the earth, including altitude. For example, to encode the Google's New York office, which is at 40.71872 deg N latitude, 73.98905 deg W longitude, at a point 100 meters above the office, one would encode "geo:40.71872,-73.98905,100".
 
 A reader might open a local mapping application like Google Maps to this location and zoom accordingly, or could open a link to this location on a mapping web site like Google Maps in the device's web browser.
 
+Services like [Apple Maps](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1) and [Google Maps](https://developers.google.com/maps/documentation/maps-static/intro) have more thorough implemenations with more options. These are presented as normal HTTPS-based URLs, but are generally handled by the built-in mapping applications.
+
+* [Apple Maps: Space Needle](https://maps.apple.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&auid=17457489312301189071&ll=47.620521,-122.349293&lsp=9902&q=Space%20Needle)
+* [Google Maps: Space Needle](https://maps.google.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&auid=17457489312301189071&ll=47.620521,-122.349293&lsp=9902&q=Space%20Needle)
 
 ## Platform-specific
 
