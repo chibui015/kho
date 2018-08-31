@@ -182,14 +182,33 @@ Order of fields does not matter. Special characters "\", ";", "," and ":" should
 
 ## Platform-specific
 
-### Google Play
+### Google Play Store
 
-You can construct URIs that (on Android devices) link directly into Google Play. For example to encode a link to an app whose package is `org.example.foo`, use:
+You can construct URIs that (on Android devices) link directly into Google Play Store. For example to encode a link to an app whose package is `org.example.foo`, use:
 
-{{{market://details?id=org.example.foo}}}
+```plain
+market://details?id=org.example.foo
+```
 
-## Unconfirmed, Unreleased, Possibilities
+### iTunes and App Store
 
-### YouTube URI
+```plain
+# Apple Music, iTunes Music Store
+https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&app=music
+https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&app=itunes
 
-This should trigger YouTube player: `youtube://[video ID]`
+# iBooks Store
+https://geo.itunes.apple.com/us/book/crazy-rich-asians/id588213164?mt=11
+
+# App Store
+https://itunes.apple.com/us/app/fortnite/id1261357853?mt=8
+```
+
+See also…
+
+* [Apple URL Scheme Reference: iTunes Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/iTunesLinks/iTunesLinks.html#//apple_ref/doc/uid/TP40007899-CH3-SW1)
+* [iTunes Link Maker](https://linkmaker.itunes.apple.com)
+
+### YouTube
+
+* [Apple URL Scheme Reference: YouTube Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/YouTubeLinks/YouTubeLinks.html#//apple_ref/doc/uid/TP40007899-CH8-SW1)
