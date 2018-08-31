@@ -30,10 +30,15 @@ Note that NTT DoCoMo has standardized a more expressive [MATMSG format](https://
 
 ## Telephone numbers
 
-A tel URI should be used to encode a telephone number, to ensure that the digits are understood as a telephone number. Further, it is advisable to include prefixes that make the number accessible internationally. For example, to encode the US phone number 212-555-1212, one should encode `tel:+1-212-555-1212`. This tel URI includes a "+1" prefix that will make it usable outside the United States.
+A `tel` URI should be used to encode a telephone number, to ensure that the digits are understood as a telephone number. Further, you should generally use the most complete version of a telephone number possible (i.e., country code + area code + number). For example, to encode the US phone number 212-555-1212, one should encode `tel:+1-212-555-1212`. This tel URI includes a "+1" prefix that will make it usable outside the United States.
 
 Readers should invoke the device's dialer, if applicable, and pre-fill it with the given number, but not automatically initiate a call.
 
+See Also…
+
+* [CSS-Tricks: The Current State of Telephone Links](https://css-tricks.com/the-current-state-of-telephone-links/)
+* [Apple URL Scheme Reference: Phone Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
+* [Android: Common Intents](https://developer.android.com/guide/components/intents-common#Phone)
 
 ## Contact information
 
