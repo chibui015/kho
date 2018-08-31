@@ -1,6 +1,6 @@
 Much has been said about 2D barcodes, and the discussion has focused on the format of the 2D barcode itself -- QR Code, Data Matrix, and so on. But equally important is the format of what the barcode itself encodes.
 
-2D barcodes encode text, generally, but that text can represent many things. Commonly, 2D barcodes encode text that represents a URL, like `http://google.com/m`. This is a special string of text since it is recognizable as a URL by readers, and therefore can be acted upon: the reader can open the URL in a browser.
+2D barcodes encode text, generally, but that text can represent many things. Commonly, 2D barcodes encode text that represents a URL, like `https://google.com/m`. This is a special string of text since it is recognizable as a URL by readers, and therefore can be acted upon: the reader can open the URL in a browser.
 
 2D barcodes can encode many types of actionable text. Text representing contact information, when recognized, could trigger a prompt to add the contact to an address book. But this only works when readers understand that text encodes contact information. For this, we need standards too.
 
@@ -10,7 +10,7 @@ The ZXing reader library supports all of the formats mentioned in this wiki and 
 
 ## URL
 
-The most common application of barcodes is to encode the text of URL such as `http://google.com/m`. To do so, simply encode exactly the text of the URL in the barcode: `http://google.com/m`. Include the protocol (`http://` here) to ensure it is recognized as a URL.
+The most common application of barcodes is to encode the text of URL such as `https://google.com/m`. To do so, simply encode exactly the text of the URL in the barcode: `https://google.com/m`. Include the protocol (`https://` here) to ensure it is recognized as a URL.
 
 Readers should open the URL in the device's web browser when decoding a URL. It is probably desirable for a reader to display the URL and ask the user whether to proceed, so that the user may see the URL before accessing it.
 
@@ -18,15 +18,15 @@ URLs prefixed with `URLTO:` have been observed "in the wild" (e.g. `URLTO:google
 
 It's interesting to note that, actually, QR Codes can encode data more efficiently in some cases if only uppercase letters are used. That's because it has a special encoding mode for text consistent of only (uppercase) letters, numbers, and common symbols. It may be advantageous to encode a URL like `HTTP://MYSITE.COM/FOO...` rather than `http://mysite.com/foo...` for this reason. However, this depends upon the web server responding to requests correctly when the URI is uppercased. It's not necessarily true that URIs and paths are treated as case-insensitive by a web server, since URIs are technically case sensitive. Don't try this unless you test it to know it works.
 
-Note that NTT DoCoMo uses a [MEBKM bookmark format](https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/bookmark/) to express not only a URL but title. This could be treated like a URL, or, prompt the user to add a browser bookmark.
+Note that NTT DoCoMo uses a [MEBKM bookmark format](https://web.archive.org/web/20160213153725/https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/bookmark/) to express not only a URL but title. This could be treated like a URL, or, prompt the user to add a browser bookmark.
 
 ## E-mail address
 
-To encode an e-mail address like `sean@example.com`, one could simply encode `sean@example.com`. However to ensure it is recognized as an e-mail address, it is advisable to create a proper `mailto:` URI from the address: `mailto:sean@example.com`.
+To encode an e-mail address like `sean@example.com`, one could simply encode `sean@example.com`. However to ensure it is recognized as an e-mail address, it is advisable to create a proper `mailto:` URL from the address: `mailto:sean@example.com`.
 
 Readers should open a blank e-mail message to the given address.
 
-Note that NTT DoCoMo has standardized a more expressive [MATMSG format](https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/mail/) for encoding an e-mail address, subject, and message.
+Note that NTT DoCoMo has standardized a more expressive [MATMSG format](https://web.archive.org/web/20130330190304/http://www.nttdocomo.co.jp:80/english/service/developer/make/content/barcode/function/application/mail/) for encoding an e-mail address, subject, and message.
 
 ## Telephone numbers
 
@@ -39,7 +39,7 @@ Readers should invoke the device's dialer, if applicable, and pre-fill it with t
 
 We have, for example, the [vCard](https://en.wikipedia.org/wiki/VCard) format for encoding contact information as text. This format proves a bit verbose for use in 2D barcodes, whose information capacity is limited. It is not clear whether vCard is or should be used to encode contact information.
 
-NTT DoCoMo has popularized a compact [MECARD format](https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/addressbook/) for encoding contact information. For example, to encode the name Sean Owen, address "76 9th Avenue, 4th Floor, New York, NY 10011", phone number "212 555 1212", e-mail `srowen@example.com`, one would encode this in a barcode:
+NTT DoCoMo has popularized a compact [MECARD format](https://web.archive.org/web/20130712164414/http://www.nttdocomo.co.jp:80/english/service/developer/make/content/barcode/function/application/addressbook/) for encoding contact information. For example, to encode the name Sean Owen, address "76 9th Avenue, 4th Floor, New York, NY 10011", phone number "212 555 1212", e-mail `srowen@example.com`, one would encode this in a barcode:
 
 ```
 MECARD:N:Owen,Sean;ADR:76 9th Avenue, 4th Floor, New York, NY 10011;TEL:12125551212;EMAIL:srowen@example.com;;
@@ -96,7 +96,7 @@ You can construct URIs that (on Android devices) link directly into Google Play.
 
 {{{market://details?id=org.example.foo}}}
 
-### Wifi Network config (Android)
+### Wifi Network config (Android, iOS 11+)
 
 We propose a syntax like "MECARD" for specifying wi-fi configuration. Scanning such a code would, after prompting the user, configure the device's wi-fi accordingly. The only client that implements this at the moment is for Android. Example:
 
