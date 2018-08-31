@@ -94,8 +94,18 @@ BIZCARD:N:Sean;X:Owen;T:Software Engineer;C:Google;A:76 9th Avenue, New York, NY
 
 ### vCard
 
-[vCard](https://en.wikipedia.org/wiki/VCard) format has been used as well to encode contact information, though it is more verbose.
+Many apps understand the [vCard specification](https://en.wikipedia.org/wiki/VCard). The wiki for [mangstadt/ez-vcard](https://github.com/mangstadt/ez-vcard) provides documentation for [Version differences](https://github.com/mangstadt/ez-vcard/wiki/Version-differences) and [Property lists](https://github.com/mangstadt/ez-vcard/wiki/Property-List) between the various versions of the vCard specification.
 
+```vcard
+BEGIN:VCARD
+VERSION:3.0
+N:Owen;Sean;;;
+FN:Sean Owen
+TITLE:Software Engineer
+EMAIL;TYPE=INTERNET;TYPE=WORK;TYPE=PREF:srowen@google.com
+URL;TYPE=Homepage:https://example.com
+END:VCARD
+```
 
 ## SMS/MMS/FaceTime
 
@@ -141,17 +151,21 @@ Services like [Apple Maps](https://developer.apple.com/library/archive/featureda
 * [Apple Maps: Space Needle](https://maps.apple.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&auid=17457489312301189071&ll=47.620521,-122.349293&lsp=9902&q=Space%20Needle)
 * [Google Maps: Space Needle](https://maps.google.com/?address=400%20Broad%20St,%20Seattle,%20WA%20%2098109,%20United%20States&auid=17457489312301189071&ll=47.620521,-122.349293&lsp=9902&q=Space%20Needle)
 
-## Platform-specific
+## Calendar Events
 
-### Google Play
+The newer [iCalendar](https://en.wikipedia.org/wiki/ICalendar) (`.ics`) format, as well as the older [vCalendar](https://en.wikipedia.org/wiki/ICalendar#vCalendar_1.0) (`.vcs`) format both define a sub-set of their formats for _events_. These are [vEvents](https://icalendar.org/iCalendar-RFC-5545/3-6-1-event-component.html).
 
-You can construct URIs that (on Android devices) link directly into Google Play. For example to encode a link to an app whose package is `org.example.foo`, use:
+```vevent
+BEGIN:VEVENT
+SUMMARY:Summer+Vacation!
+DTSTART:20180601T070000Z
+DTEND:20180831T070000Z
+END:VEVENT
+```
 
-{{{market://details?id=org.example.foo}}}
+## Wi-Fi Network config (Android, iOS 11+)
 
-### Wifi Network config (Android, iOS 11+)
-
-We propose a syntax like "MECARD" for specifying wi-fi configuration. Scanning such a code would, after prompting the user, configure the device's wi-fi accordingly. The only client that implements this at the moment is for Android. Example:
+We propose a syntax like "MECARD" for specifying wi-fi configuration. Scanning such a code would, after prompting the user, configure the device's Wi-Fi accordingly. Example:
 
 ```
 WIFI:T:WPA;S:mynetwork;P:mypass;;
@@ -166,24 +180,16 @@ WIFI:T:WPA;S:mynetwork;P:mypass;;
 
 Order of fields does not matter. Special characters "\", ";", "," and ":" should be escaped with a backslash ("\") as in MECARD encoding. For example, if an SSID was literally `"foo;bar\baz"` (with double quotes part of the SSID name itself) then it would be encoded like: `WIFI:S:\"foo\;bar\\baz\";;`
 
+## Platform-specific
+
+### Google Play
+
+You can construct URIs that (on Android devices) link directly into Google Play. For example to encode a link to an app whose package is `org.example.foo`, use:
+
+{{{market://details?id=org.example.foo}}}
+
 ## Unconfirmed, Unreleased, Possibilities
 
 ### YouTube URI
 
 This should trigger YouTube player: `youtube://[video ID]`
-
-### iCal
-
-Though not observed in any QR Code or reader so far, it is conceivable that [iCal](https://en.wikipedia.org/wiki/ICalendar) format could be used to encode calendar events. Readers could add events to the user's calendar in response.
-
-We tentatively suggest using an abbreviated form that omits the VCALENDAR element:
-
-```
-BEGIN:VEVENT
-SUMMARY:Test Meeting
-DTSTART:20080811T190000Z
-DTEND:20080811T200000Z
-END:VEVENT
-```
-
-... *without* the `BEGIN:VCALENDAR` or `END:VCALENDAR` start/end elements.
