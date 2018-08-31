@@ -71,20 +71,38 @@ BIZCARD:N:Sean;X:Owen;T:Software Engineer;C:Google;A:76 9th Avenue, New York, NY
 [vCard](https://en.wikipedia.org/wiki/VCard) format has been used as well to encode contact information, though it is more verbose.
 
 
-## SMS
+## SMS/MMS/FaceTime
 
-Much like an e-mail address, one can encode an SMS shortcode or number by creating an sms URI. For example to create a link to the number 12345 one would encode `sms:12345`. See [RFC 5724](https://www.ietf.org/rfc/rfc5724.txt) for details.
+Much like an e-mail address, one can encode an SMS shortcode or number by creating an `sms` URI. For example to create a link to the number 12345 one would encode `sms:12345`. See [RFC 5724](https://tools.ietf.org/html/rfc5724) for details.
 
-Likewise `SMSTO:` URLs have been observed in the wild, though I am still looking for an official specification for it. Follow this with the number to SMS.
+Likewise `SMSTO:` URLs have been observed in the wild, though I am still looking for an official specification for it. Follow this with the number to SMS. We have heard of URIs of the form `sms:[number]:[subject]`, and likewise for other prefixes like `smsto:`.
 
-We have heard of URIs of the form `sms:[number]:[subject]`, and likewise for other prefixes like `smsto:`.
+There appear to be "mms:" and "MMSTO:" URIs used like "sms:" URIs in practice. We assume the format is the same, and that the reader should react similarly to such a URI.
 
 Readers should open a new SMS message, ready for the user to compose and send it.
 
-### MMS
+```plain
+# Send an SMS/MMS to a number
+sms:+18005551212
 
-Likewise, there appear to be "mms:" and "MMSTO:" URIs used like "sms:" URIs in practice. We assume the format is the same, and that the reader should react similarly to such a URI.
+# Send an SMS/MMS to a number with pre-filled message.
+sms:+18005551212:This%20is%20my%20text%20message.
 
+# FaceTime Video
+facetime:+18005551212
+facetime:me@icloud.com
+
+# FaceTime Audio
+facetime-audio:+18005551212
+facetime-audio:me@icloud.com
+```
+
+See Also…
+
+* [CSS-Tricks: iPhone Calling and Texting Links](https://css-tricks.com/snippets/html/iphone-calling-and-texting-links/)
+* [Apple URL Scheme Reference: SMS Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/SMSLinks/SMSLinks.html#//apple_ref/doc/uid/TP40007899-CH7-SW1)
+* [Apple URL Scheme Reference: FaceTime Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/FacetimeLinks/FacetimeLinks.html#//apple_ref/doc/uid/TP40007899-CH2-SW1)
+* [Android: Common Intents](https://developer.android.com/guide/components/intents-common#Messaging)
 
 ## Geographic information
 
